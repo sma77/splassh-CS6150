@@ -1,0 +1,102 @@
+<template name="userdash">
+  <div class="container">
+      <h1>My Dashboard <br/><small>A list of all projects created by {{userName}}</small></h1>
+  </div>
+
+   <hr class="featurette-divider">
+  <div class="container">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+<th>Following</th> 
+            <!--th>Description</th-->
+          </tr>
+        </thead>
+        <tbody>
+          {{#each follows}}
+            <tr class="follow {{selected}}">
+              <td><a href="/project/{{projectId}}">{{title}}</a></td>
+              <!--td>{{truncate description 100}}</td-->
+   
+              <!--td>{{coordinates.lat}},{{coordinates.lng}}</td-->
+              <td><div class="btn-group">
+           
+                  <button class="btn btn-danger btn-xs removeFollow" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                </div></td>
+            </tr>
+          {{/each}}
+          </tbody>
+      </table>
+  </div>
+
+   <hr class="featurette-divider">
+  <div class="container">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Project Name</th> 
+            <!--th>Description</th-->         
+            <th>Date Created</th>
+	    <th>Primary Classification</th>
+            <!--th>Location</th-->
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each projects}}
+            <tr class="project {{selected}}">
+              <td><a href="/project/{{_id}}">{{title}}</a></td>
+              <!--td>{{truncate description 100}}</td-->
+	      <td>{{formatDate date_created "short"}}</td>
+              <td><button type="button" class="btn btn-success btn-xs tag-name">{{maintag}}</button></td>
+              <!--td>{{coordinates.lat}},{{coordinates.lng}}</td-->
+              <td><div class="btn-group">
+<button type="button" class="btn btn-default btn-xs editProject" data-toggle="modal" data-target="#editWaterProjectModal" ><span class="glyphicon glyphicon-pencil"> </span></button>
+                  <button class="btn btn-danger btn-xs removeProject" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                </div></td>
+            </tr>
+          {{/each}}
+          </tbody>
+      </table>
+  </div>
+
+ <hr class="featurette-divider">
+  <div class="container">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Comment Body</th>
+            <!--th>Description</th-->
+            <th>Date Created</th>
+            <!--th>Location</th-->
+            <th></th>
+	    <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each comments}}
+            <tr class="comments {{selected}}">
+              <td><a href="/project/{{projectId}}">{{body}}</a></td>
+              <!--td>{{truncate description 100}}</td-->
+              <td>{{formatDate posted "short"}}</td>
+              <!--td>{{coordinates.lat}},{{coordinates.lng}}</td-->
+              
+	      <td></td>
+              <td><div class="btn-group">
+                  <button class="btn btn-default btn-xs editComment" type="button"><span class="glyphicon glyphicon-pencil"></span></button>
+<div id = editCommentform style="display: none">
+<br/>
+     <form role="form" class="editcomment">
+        	<input id="comment-edit" type="text" required placeholder="Edit your comment" class="form-control input-sm input-block" value="{{body}}"/>
+<button class="btn btn-default btn-sm btn-block" type="submit">submit edit</button>		
+        </form>         
+</div>
+                  <button class="btn btn-danger btn-xs removeComment" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                </div></td>
+            </tr>
+          {{/each}}
+          </tbody>
+      </table>
+  </div>
+ {{> editProjectModal }}
+</template>

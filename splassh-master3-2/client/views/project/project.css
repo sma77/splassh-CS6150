@@ -1,0 +1,41 @@
+.primary-tag {
+  margin: 15px 3px;
+}
+.primary-tag a:hover {
+  color: blue;
+}
+.tag-tier-tag {
+  background-color: blue;
+}
+.tag-tier-body {
+  background-color: purple;
+}
+.tag-tier-type {
+  background-color: orange;
+}
+
+.project-page-thumbnail {
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+.project-page-thumbnail img {
+	width: 60px;
+	height: 70px;
+}
+
+.project-page-title {
+	margin-bottom: 0px;
+}
+
+.project-extras button {
+	background-color: #fff;
+	border-color: #ccc;
+	color: #333;
+}
+
+.project-extras button:hover {
+	background-color: #e6e6e6;
+	border-color: #adadad;
+	color: #333;
+}

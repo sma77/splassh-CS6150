@@ -1,0 +1,12 @@
+{
+  "bucket": "salim.meteor.com",
+  "accessKeyId": "AKIAIBPNRNMAPJHMAUEA",
+  "secretAccessKey": "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",
+    "public": {
+        "ga": {
+            "id": "UA-77533950-1",
+            "trackUserId": true
+        }
+    },
+  "googleApiKey": "AABBCCddEEff12123131"
+}
